@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`changes the class when hovered 1`] = `
+<div
+  className="carousel"
+>
+  <div
+    className="carousel-container"
+  >
+    <div
+      className="carousel-sliders"
+    />
+  </div>
+</div>
+`;
+
+exports[`if Sliders loaded properly 1`] = `
+<div
+  className="carousel"
+>
+  <div
+    className="carousel-container"
+  >
+    <div
+      className="carousel-sliders"
+    />
+  </div>
+</div>
+`;
+
+exports[`if Sliders loaded properly 2`] = `
+<div
+  className="carousel"
+>
+  <div
+    className="carousel-container"
+  >
+    <div
+      className="carousel-sliders"
+    />
+  </div>
+</div>
+`;
+
+exports[`if carousel loaded properly 1`] = `
+<div
+  className="carousel"
+>
+  <div
+    className="carousel-container"
+  >
+    <div
+      className="carousel-sliders"
+    />
+  </div>
+</div>
+`;
+
+exports[`if carousel loaded properly 2`] = `
+<div
+  className="carousel"
+>
+  <div
+    className="carousel-container"
+  >
+    <div
+      className="carousel-sliders"
+    />
+  </div>
+</div>
+`;
+
+exports[`if component match Snapshot 1`] = `
+<div
+  className="carousel"
+>
+  <div
+    className="carousel-container"
+  >
+    <div
+      className="carousel-sliders"
+    />
+  </div>
+</div>
+`;

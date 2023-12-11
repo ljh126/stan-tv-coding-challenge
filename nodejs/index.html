@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stan nodejs</title>
+  <style>
+    html {
+      height: 100%;
+      background: #0e0e0e;
+    }
+    .logo {
+      background: #0e0e0e;
+      height: 40px;
+    }
+    .images-container {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      justify-items: center;
+      gap: 15px;
+    }
+    img {
+      height: 280px;
+    }
+    header {
+      margin: 15px;
+    }
+  </style>
+  <script>
+    const getHashDigest = async (url) => {
+      const res = await fetch(url);
+      const blob = await res.blob();
+
+      const uint8Array = new Uint8Array(await blob.arrayBuffer());
+      const hashBuffer = await crypto.subtle.digest('SHA-256', uint8Array);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+      return hashArray.map((h) => h.toString(16).padStart(2, '0')).join('');
+    };
+
+    const appendImage = (image) => {
+      const img = document.createElement('img');
+      img.src = image.image;
+
+      document.querySelector(".images-container").appendChild(img);
+    };
+
+    const ws = new WebSocket("ws://localhost:8081");
+    ws.onopen = (e) => { };
+    ws.onmessage = async (event) => {
+      const image = JSON.parse(event.data);
+      appendImage(image);
+
+      const digest = await getHashDigest(image.image);
+      if (!!document.querySelector(".hash-btn").dataset.flag) {
+        ws.send(JSON.stringify({ id: image.id, hash: digest }));
+      } else {
+        ws.send(JSON.stringify({ id: image.id, hash: null }));
+      }
+    };
+
+    ws.onclose = (event) => { };
+
+    ws.onerror = (error) => { console.log(error); };
+    window.onload = () => {
+      document.querySelector(".hash-btn").addEventListener('click', (evt) => {
+        if (evt.target.dataset.flag === "true") {
+          evt.target.dataset.flag = "false";
+          evt.target.innerText = "enable hashing";
+        } else {
+          evt.target.dataset.flag = "true";
+          evt.target.innerText = "disable hashing";
+        }
+      });
+    };
+  </script>
+</head>
+
+<body>
+  <div class="root">
+    <header>
+      <img src="logo.svg" alt="logo" class="logo" />
+      <button class="hash-btn" data-flag="true">disable hashing</button>
+    </header>
+    <section class="images-container"></section>
+  </div>
+</body>
+
+</html>

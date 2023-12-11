@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {
+    "start": "node ./bin/index.js  --interval=150 --file=data.json"
+  },
+  "bin": {
+    "stan": "./bin/index.js"
+  },
+  "author": "me",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "minimist": "^1.2.8",
+    "ws": "^8.14.2"
+  }
+}

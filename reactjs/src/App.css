@@ -1,0 +1,157 @@
+html {
+  height: 100%;
+  background-color: #0e0e0e;
+}
+.App {
+  text-align: center;
+  font-family: 'Open Sans' !important;
+}
+.app-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 15px;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  width: 1000px;
+  margin-bottom: 30px;
+}
+.header h1 {
+  margin: 0;
+  font-weight: bolder;
+  font-size: 35px;
+  margin-right: 30px;
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+li {
+  cursor: pointer;
+  font-size: 15px;
+  color: #606060;
+  font-weight: bold;
+}
+li.on {
+  color: white;
+}
+.slider-skeleton {
+  height: 250px;
+  width: 167px;
+  background-color: #606060;
+}
+.error-info {
+  color: #606060;
+  font-size: 18px;
+  font-weight: bold;
+  width: 1000px;
+  text-align: left;
+  margin: 0;
+}
+
+.program-container {
+  width: 1000px;
+  color: white;
+}
+
+.program {
+  display: flex;
+  gap: 50px;
+}
+
+.program-image {
+  height: 250px;
+}
+.program-image img {
+  width: 100%;
+}
+.program-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 20px;
+}
+.program-info h2 {
+  margin: 0;
+  font-size: 40px;
+}
+.program-meta {
+  margin-bottom: 25px;
+}
+.prorgram-description {
+  line-height: 1.5;
+}
+
+.program-skeleton {
+  color: #606060;
+  display: flex;
+  flex-direction: row;
+}
+.program-skeleton .left {
+  width: 180px;
+  height: 300px;
+  background-color: #606060;
+}
+
+.right {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.first-block {
+  height: 40px;
+  width: 200px;
+  background-color: #606060;
+}
+.second-block {
+  height: 30px;
+  width: 400px;
+  background-color: #606060;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.third-block {
+  height: 135px;
+  width: 600px;
+  background-color: #606060;
+}
+
+@media (max-width: 575.98px) { 
+  .carousel-container {
+    width: initial;
+  }
+  .carousel {
+    align-items: start;
+    overflow: hidden;
+  }
+  .slider-wrapper {
+    border: none;
+  }
+  .header {
+    width: initial;
+    justify-content: center;
+  }
+  .program-container {
+    width: initial;
+  }
+  .program {
+    flex-direction: column;
+  }
+  .program-image {
+    height: initial;
+  }
+  .program-info {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .slider {
+    height: initial;
+  }
+}
